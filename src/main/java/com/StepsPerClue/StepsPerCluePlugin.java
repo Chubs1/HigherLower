@@ -40,22 +40,22 @@ private boolean messageProcessed = false;
 		int stringStackSize = client.getStringStackSize();
 		String message = stringStack[stringStackSize - 1];
 
-		if (!message.matches("You have completed \\d+ steps on this [a-zA-Z]+ clue scroll.")) {
+		if (!message.matches("You have completed \\d+ step(s)? on this [a-zA-Z]+ clue scroll.")) {
 			return;
 		}
 		String clueText = "error";
 		if (message.contains("beginner")) {
-			clueText = "(1-3)";
+			clueText = "1-3";
 		} else if (message.contains("easy")) {
-			clueText = "(2-4)";
+			clueText = "2-4";
 		} else if (message.contains("medium")) {
-			clueText = "(3-5)";
+			clueText = "3-5";
 		} else if (message.contains("hard")) {
-			clueText = "(4-6)";
+			clueText = "4-6";
 		} else if (message.contains("elite")) {
-			clueText = "(5-7)";
+			clueText = "5-7";
 		} else if (message.contains("master")) {
-			clueText = "(6-8)";
+			clueText = "6-8";
 		}
 		ChatMessageBuilder newMessage = new ChatMessageBuilder()
 				.append(ChatColorType.NORMAL)
