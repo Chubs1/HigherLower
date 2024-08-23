@@ -38,6 +38,9 @@ private boolean messageProcessed = false;
 		}
 		String[] stringStack = client.getStringStack();
 		int stringStackSize = client.getStringStackSize();
+		if(stringStackSize <= 0){
+			stringStackSize = 1;
+		}
 		String message = stringStack[stringStackSize - 1];
 
 		if (!message.matches("You have completed \\d+ step(s)? on this [a-zA-Z]+ clue scroll.")) {
